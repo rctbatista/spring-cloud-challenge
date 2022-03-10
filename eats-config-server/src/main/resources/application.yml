@@ -2,13 +2,14 @@ server:
   port: 8888
   
 spring:
-  profiles:
-    active: native
   cloud:
     config:
       server:
-        native:
-          search-locations: ../microservices/config
+        git:
+          uri: https://github.com/rctbatista/spring-cloud-challenge-config
+          basedir: ../../spring-cloud-challenge-config
+          cloneOnStart: true
+          skipSslValidation: true
           
 eureka:
   client:
