@@ -23,7 +23,7 @@ public class PedidoRestClientFacade {
         try {
         	restClient.notificaPagamentoDoPedido(pedidoId, new PedidoMudancaDeStatusRequest("pago".toUpperCase()));
 		} catch (FeignException e) {
-			log.error("Erro ao chamar API para notificaÃ§Ã£o do pagamento do pedido.", e);
+			log.error("Erro ao chamar API para notificação do pagamento do pedido.", e);
 			throw new RuntimeException("problema ao tentar mudar o status do pedido: " + pedidoId);
 		}
         

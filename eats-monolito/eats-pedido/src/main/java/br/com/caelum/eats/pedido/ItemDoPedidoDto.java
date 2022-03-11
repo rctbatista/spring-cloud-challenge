@@ -1,6 +1,6 @@
 package br.com.caelum.eats.pedido;
 
-import br.com.caelum.eats.restaurante.ItemDoCardapioDto;
+import br.com.caelum.eats.restaurante.controller.domain.ItemDoCardapioDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

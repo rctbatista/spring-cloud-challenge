@@ -9,10 +9,6 @@
 	</parent>
 	<artifactId>eats-application</artifactId>
 	
-	<properties>
-		<spring-cloud.version>Greenwich.SR6</spring-cloud.version>
-	</properties>
-	
 	<dependencies>
 		<dependency>
 			<groupId>br.com.caelum</groupId>
@@ -75,18 +71,6 @@
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
 	</dependencies>
-
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 
 	<build>
 		<plugins>

@@ -1,14 +1,17 @@
-package br.com.caelum.eats.pedido;
+package br.com.caelum.eats.restaurante.repository.entity;
+
+import java.math.BigDecimal;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 
-import br.com.caelum.eats.restaurante.repository.entity.ItemDoCardapio;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,20 +20,26 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-class ItemDoPedido {
+public class ItemDoCardapio {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 
+	@NotBlank @Size(max=150)
+	private String nome;
+
+	private String descricao;
+
 	@NotNull @Positive
-	private Integer quantidade;
+	private BigDecimal preco;
 
-	private String observacao;
+	@Positive
+	private BigDecimal precoPromocional;
+
+	@ManyToOne(optional=false)
+	private CategoriaDoCardapio categoria;
 	
-	@ManyToOne(optional=false)
-	private Pedido pedido;
-
-	@ManyToOne(optional=false)
-	private ItemDoCardapio itemDoCardapio;
-
+	public BigDecimal getPrecoEfetivo() {
+		return precoPromocional != null ? precoPromocional : preco;
+	}
 }
