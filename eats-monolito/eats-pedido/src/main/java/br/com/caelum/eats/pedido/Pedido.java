@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
-import br.com.caelum.eats.restaurante.Restaurante;
+import br.com.caelum.eats.restaurante.repository.entity.Restaurante;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
-import br.com.caelum.eats.restaurante.ItemDoCardapio;
+import br.com.caelum.eats.restaurante.repository.entity.ItemDoCardapio;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
