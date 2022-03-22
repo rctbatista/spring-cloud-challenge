@@ -24,7 +24,7 @@ public class AuthrizationServerConfiguration extends AuthorizationServerConfigur
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients.inMemory()
-			.withClient("restaurante").secret(passwordEncoder.encode("restaurantesecret")).authorizedGrantTypes("password").scopes("web", "mobile");
+			.withClient("api-gateway").secret(passwordEncoder.encode("gtwsecret")).authorizedGrantTypes("password").scopes("internal");
 	}
 	
 	@Override
