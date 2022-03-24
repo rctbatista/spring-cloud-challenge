@@ -57,18 +57,12 @@ public class PedidoController {
 		
 		log.info("Solicitada atualização do pedido. [pedidoId: {}, id: {}, status: {}]", pedidoId, pedidoParaAtualizar.getId(), pedidoParaAtualizar.getStatus());
 		
-		if (System.currentTimeMillis() % 2 == 0) {
-			Pedido pedido = service.porIdComItens(pedidoId);
-			pedido.setStatus(pedidoParaAtualizar.getStatus());
-			service.atualizaStatus(pedido.getStatus(), pedido);
-			
-			log.info("Finalizada atualização do pedido. [pedidoId: {}, id: {}, status: {}]", pedidoId, pedidoParaAtualizar.getId(), pedidoParaAtualizar.getStatus());
-			return new PedidoDto(pedido);
-		}
+		Pedido pedido = service.porIdComItens(pedidoId);
+		pedido.setStatus(pedidoParaAtualizar.getStatus());
+		service.atualizaStatus(pedido.getStatus(), pedido);
 		
-		Thread.sleep(30000);
-		log.info("Erro ao atualizar status do pedido. [pedidoId: {}]", pedidoId);
-		throw new RuntimeException("Erro ao atualizar status do pedido.");
+		log.info("Finalizada atualização do pedido. [pedidoId: {}, id: {}, status: {}]", pedidoId, pedidoParaAtualizar.getId(), pedidoParaAtualizar.getStatus());
+		return new PedidoDto(pedido);
 		
 	}
 
