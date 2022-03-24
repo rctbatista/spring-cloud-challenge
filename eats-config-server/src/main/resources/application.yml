@@ -1,0 +1,19 @@
+server:
+  port: 8888
+  
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/rctbatista/spring-cloud-challenge-config
+          basedir: ../../spring-cloud-challenge-config
+          cloneOnStart: true
+          skipSslValidation: true
+          
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
